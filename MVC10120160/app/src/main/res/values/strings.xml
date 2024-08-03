@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="celsius">Celsius</string>
+    <string name="reamur">Reamur</string>
+    <string name="fahrenheit">Fahrenheit</string>
+</resources>
