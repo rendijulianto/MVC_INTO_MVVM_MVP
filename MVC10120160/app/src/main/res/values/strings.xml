@@ -3,4 +3,7 @@
     <string name="celsius">Celsius</string>
     <string name="reamur">Reamur</string>
     <string name="fahrenheit">Fahrenheit</string>
+    <string name="kilometer">Kilometer</string>
+    <string name="centimeter">Centimeter</string>
+    <string name="meter">Meter</string>
 </resources>

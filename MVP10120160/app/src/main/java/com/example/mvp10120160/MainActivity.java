@@ -9,9 +9,9 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity implements MainView{
 
-    private EditText celsius;
-    private EditText fahrenheit;
-    private EditText reamur;
+    private EditText meter;
+    private EditText kilometer;
+    private EditText centimeter;
     private MainPresenter presenter;
 
     @Override
@@ -24,11 +24,11 @@ public class MainActivity extends AppCompatActivity implements MainView{
     }
 
     private void initView() {
-        celsius = findViewById(R.id.celsius);
-        fahrenheit = findViewById(R.id.fahrenheit);
-        reamur = findViewById(R.id.reamur);
+        meter = findViewById(R.id.meter);
+        kilometer = findViewById(R.id.kilometer);
+        centimeter = findViewById(R.id.centimeter);
 
-        celsius.addTextChangedListener(new TextWatcher() {
+        meter.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -41,24 +41,24 @@ public class MainActivity extends AppCompatActivity implements MainView{
 
             @Override
             public void afterTextChanged(Editable editable) {
-                presenter.calculateTemperature(editable.toString());
+                presenter.calculateDistance(editable.toString());
             }
         });
-    }
-
-    @Override
-    public void showReamur(String reamur) {
-        this.reamur.setText(reamur);
-    }
-
-    @Override
-    public void showFahrenheit(String fahrenheit) {
-        this.fahrenheit.setText(fahrenheit);
     }
 
     @Override
     protected void onDestroy() {
         presenter = null;
         super.onDestroy();
+    }
+
+    @Override
+    public void showKilometer(String kilometer) {
+        this.kilometer.setText(kilometer);
+    }
+
+    @Override
+    public void showCentimeter(String centimeter) {
+        this.centimeter.setText(centimeter);
     }
 }

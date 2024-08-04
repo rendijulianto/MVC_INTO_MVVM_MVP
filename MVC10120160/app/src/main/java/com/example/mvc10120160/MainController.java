@@ -2,22 +2,22 @@ package com.example.mvc10120160;
 
 public class MainController {
     private MainView view;
-    private Celsius model;
+    private Meter model;
 
     public MainController(MainView view) {
         this.view = view;
-        this.model = Celsius.getInstance();
+        this.model = Meter.getInstance();
     }
 
     public void calculateTemperature() {
-        String celsius = view.getCelsius();
-        if (celsius.isEmpty())
-            celsius = "0";
+        String meter = view.getMeter();
+        if (meter.isEmpty())
+            meter = "0";
 
-        double parsedCelsius = Double.parseDouble(celsius);
-        model.setCelsius(parsedCelsius);
+        double parsedMeter = Double.parseDouble(meter);
+        model.setMeter(parsedMeter);
 
-        model.toFahrenheit();
-        model.toReamur();
+        model.toCentimeter();
+        model.toKilometer();
     }
 }

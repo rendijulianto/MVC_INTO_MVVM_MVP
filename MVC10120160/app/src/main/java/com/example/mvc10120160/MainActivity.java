@@ -8,39 +8,39 @@ import android.text.TextWatcher;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity implements MainView {
-    private EditText celsius;
-    private EditText fahrenheit;
-    private EditText reamur;
+    private EditText meter;
+    private EditText kilometer;
+    private EditText centimeter;
     private MainController controller;
-    private Celsius model;
+    private Meter model;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         controller = new MainController(this);
-        model = Celsius.getInstance();
+        model = Meter.getInstance();
 
         initView();
         observeModel();
     }
 
     private void observeModel() {
-        model.getFahrenheit().observe(this, fahrenheit -> {
-            this.fahrenheit.setText(fahrenheit);
+        model.getKilometer().observe(this, kilometer -> {
+            this.kilometer.setText(kilometer);
         });
 
-        model.getReamur().observe(this, reamur -> {
-            this.reamur.setText(reamur);
+        model.getCentimeter().observe(this, centimeter -> {
+            this.centimeter.setText(centimeter);
         });
     }
 
     private void initView() {
-        celsius = findViewById(R.id.celsius);
-        fahrenheit = findViewById(R.id.fahrenheit);
-        reamur = findViewById(R.id.reamur);
+        meter = findViewById(R.id.meter);
+        kilometer = findViewById(R.id.kilometer);
+        centimeter = findViewById(R.id.centimeter);
 
-        celsius.addTextChangedListener(new TextWatcher() {
+        meter.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -59,15 +59,14 @@ public class MainActivity extends AppCompatActivity implements MainView {
     }
 
     @Override
-    public String getCelsius() {
-        return celsius.getText().toString();
-    }
-
-    @Override
     protected void onDestroy() {
         controller = null;
-        Celsius.destroy();
+        Meter.destroy();
         super.onDestroy();
     }
 
+    @Override
+    public String getMeter() {
+        return meter.getText().toString();
+    }
 }

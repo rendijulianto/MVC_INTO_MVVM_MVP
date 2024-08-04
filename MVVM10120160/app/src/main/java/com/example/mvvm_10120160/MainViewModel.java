@@ -5,25 +5,25 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class MainViewModel extends ViewModel {
-    private final MutableLiveData<Celsius> celsius;
+    private final MutableLiveData<Meter> meter;
 
     public MainViewModel() {
-        celsius = new MutableLiveData<>();
+        meter = new MutableLiveData<>();
     }
 
-    public LiveData<Celsius> getCelsius() {
-        return celsius;
+    public LiveData<Meter> getMeter() {
+        return meter;
     }
 
-    public void setCelsius(String stringCelsius) {
-        if (stringCelsius.isEmpty())
-            stringCelsius = "0";
+    public void setMeter(String stringMeter) {
+        if (stringMeter.isEmpty())
+            stringMeter = "0";
 
-        double parsedCelsius = Double.parseDouble(stringCelsius);
+        double parsedMeter = Double.parseDouble(stringMeter);
 
-        Celsius celsius = new Celsius();
-        celsius.setCelsius(parsedCelsius);
+        Meter meter = new Meter();
+        meter.setMeter(parsedMeter);
 
-        this.celsius.setValue(celsius);
+        this.meter.setValue(meter);
     }
 }

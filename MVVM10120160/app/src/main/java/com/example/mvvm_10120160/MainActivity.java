@@ -10,9 +10,9 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText celsius;
-    private EditText fahrenheit;
-    private EditText reamur;
+    private EditText meter;
+    private EditText kilometer;
+    private EditText centimeter;
 
     private MainViewModel viewModel;
 
@@ -27,12 +27,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void observeTemperature() {
-        viewModel.getCelsius().observe(this, celsius -> {
-            String parsedReamur = getString(R.string.float_to_string, celsius.toReamur());
-            String parsedFahrenheit = getString(R.string.float_to_string, celsius.toFahrenheit());
+        viewModel.getMeter().observe(this, meter -> {
+            String parsedKilometer = getString(R.string.float_to_string, meter.toKilometer());
+            String parsedCentimeter = getString(R.string.float_to_string, meter.toCentimeter());
 
-            reamur.setText(parsedReamur);
-            fahrenheit.setText(parsedFahrenheit);
+            kilometer.setText(parsedKilometer);
+            centimeter.setText(parsedCentimeter);
         });
     }
 
@@ -41,11 +41,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        celsius = findViewById(R.id.celsius);
-        fahrenheit = findViewById(R.id.fahrenheit);
-        reamur = findViewById(R.id.reamur);
+        meter = findViewById(R.id.meter);
+        kilometer = findViewById(R.id.kilometer);
+        centimeter = findViewById(R.id.centimeter);
 
-        celsius.addTextChangedListener(new TextWatcher() {
+        meter.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -58,8 +58,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                String celsius = editable.toString();
-                viewModel.setCelsius(celsius);
+                String meter = editable.toString();
+                viewModel.setMeter(meter);
             }
         });
     }

@@ -4,4 +4,7 @@
     <string name="celsius">Celsius</string>
     <string name="fahrenheit">Fahrenheit</string>
     <string name="float_to_string">%1$f</string>
+    <string name="meter">Meter</string>
+    <string name="kilometer">Kilometer</string>
+    <string name="centimeter">Centimeter</string>
 </resources>

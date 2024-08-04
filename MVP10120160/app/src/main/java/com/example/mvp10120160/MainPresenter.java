@@ -7,18 +7,18 @@ public class MainPresenter {
         this.view = view;
     }
 
-    public void calculateTemperature(String celsius) {
-        if (celsius.isEmpty())
-            celsius = "0";
+    public void calculateDistance(String meter) {
+        if (meter.isEmpty())
+            meter = "0";
 
-        Celsius model = new Celsius();
-        double parsedCelsius = Double.parseDouble(celsius);
-        model.setCelsius(parsedCelsius);
+        Meter model = new Meter();
+        double parsedMeter = Double.parseDouble(meter);
+        model.setMeter(parsedMeter);
 
-        String fahrenheit = model.toFahrenheit() + "";
-        String reamur = model.toReamur() + "";
+        String kilometer = model.toKilometer() + "";
+        String centimeter = model.toCentimeter() + "";
 
-        view.showFahrenheit(fahrenheit);
-        view.showReamur(reamur);
+        view.showKilometer(kilometer);
+        view.showCentimeter(centimeter);
     }
 }
